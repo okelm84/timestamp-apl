@@ -1,8 +1,9 @@
 var express = require('express'),
     url = require('url'),
     moment = require('moment');
-moment().format();
+//moment().format();
 var app = express();
+app.set('port', (process.env.PORT || 8080))
 app.use('/',express.static('info'));
 
 app.get('/*', function (req, res) {
@@ -33,4 +34,4 @@ app.get('/*', function (req, res) {
 
 
 
-app.listen(8080);
+app.listen(app.get('port'));
